@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="coolstoryalt.css">
+  </head>
+  <body onkeypress="setTimeout(myFunction(event), 600)" onkeyup="setTimeout(myOthrFunction(), 600)">
+    <div class="container">
+      <div class="center">
+        <br>
+        <br>
+        <br>
+        <div class="frame-container">
+          <iframe src="https://appear.in/4eca-robot-project" width="700" height="600" frameborder="0"></iframe>
+          
+        </div>
+      </div>
+      <div class="control">
+        <image name=myImage src="images\stillalt.png" width="400" height="400"></image>
+      </div>
+    </div>
+  <!--<div class="container">
+    <div class="fixed">
+      <iframe src="https://appear.in/zawarudorobot" width="700" height="600"></iframe>
+    </div>
+    <div class="flex-item">
+      <img name=myImage src="images/stillalt.png">
+    </div>
+  </div>-->
+    <script>
+      ims = new Array(5);
+      for(i=0;i<ims.length;i++) {
+        ims[i] = new Image();
+      }
+      ims[0].src = "images/stillalt.png";
+      ims[1].src = "images/frontalt.png";
+      ims[2].src = "images/backalt.png";
+      ims[3].src = "images/leftalt.png";
+      ims[4].src = "images/rightalt.png";
+      var down = false;
+      function myFunction(event) {
+        if(down) return;
+        down = true;
+        var x = event.which || event.keyCode;
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("POST", "codehere"+x, true);
+        xhttp.send();
+        switch(x){
+          case 38:
+          document.myImage.src = ims[1].src;
+          break;
+          case 40:
+          document.myImage.src = ims[2].src;
+          break;
+          case 37:
+          document.myImage.src = ims[3].src;
+          break;
+          case 39:
+          document.myImage.src = ims[4].src;
+          break;
+        }
+      }
+      function myOthrFunction(){
+        down = false;
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("POST", "stahp", true);
+        xhttp.send();	
+        document.myImage.src = ims[0].src;
+      }
+    </script>
+
+  </body>
+</html>
+

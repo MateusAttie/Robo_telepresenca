@@ -1,0 +1,30 @@
+body {
+    background-image: url("images\\gear.png");
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.control{
+    position: absolute;
+    bottom: 0;
+}
+
+.frame-container {
+    position: relative;
+}
+
+.frame-container .after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    color: #FFF;
+    pointer-events: none;
+    display: block;
+    opacity:0.3;
+}
